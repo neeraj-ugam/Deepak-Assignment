@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>POC</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="mat-typography">
+  <app-root></app-root>
+  <div class="container">
+    <img class="MyClass123"/>
+      <div class="form-elements">
+        <input id="myinput" type="email" placeholder="Email Address" name="email" required>
+        <button id="myBtn" onclick="submit()"></button>
+      </div>
+
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="form">
+          <input id="myModalInput" type="text" placeholder="Email Address" name="email1">
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function submit() {
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        let email = document.getElementById("myinput").value;
+        console.log(email);
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+          modal.style.display = "block";
+          //document.getElementsByClassName("content")[0].innerHTML = 'Please continue with your registration ' + email;
+          document.getElementById("myModalInput").value = email;
+        }
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+          modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+      }
+
+    </script>
+  </div>
+</body>
+
+</html>
